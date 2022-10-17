@@ -11,3 +11,10 @@
 <% ax = "minha variavel a" %>
 <p> Imprimindo a variavel a: <%= ax %> </p>
 <p> A data de hoje é: <%= Date.today %> </p>
+
+
+
+
+
+aula 54
+aula 66

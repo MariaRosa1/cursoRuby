@@ -1,14 +1,10 @@
 <h1>Seja bem vindo</h1>
 <p>Data: <%= format_date(Date.today)%> </p>
 
-<ul>
-    <li>
-        <%= link_to 'Cadastro das moedas', coins_path %>
-    </li>
-</ul>
+<%= render "menu"%>
 
 <p>
     Vocẽ esta no ambiente de <strong> <%= ambiente_rails%> </strong>
 </p>
 
-<p>Eu sou uma variavel de instancias <%= @nome %> </p>
+<p>Eu sou uma variavel de instancias <%= @meu_nome %>, tenho <%= @idade %> anos, e faço o curso de <%= @curso %>! </p>
