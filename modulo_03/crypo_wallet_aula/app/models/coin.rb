@@ -1,3 +1,3 @@
 class Coin < ApplicationRecord
-    validates :description, presence: true
+    belongs_to :mining_type
 end

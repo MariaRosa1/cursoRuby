@@ -10,5 +10,4 @@ spinner = TTY::Spinner.new("[:spinner] Cadastrando moedas")
 spinner.auto_spin
 
 
-
 spinner.success("Concluido")

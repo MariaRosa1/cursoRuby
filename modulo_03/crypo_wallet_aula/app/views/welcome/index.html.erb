@@ -1,5 +1,8 @@
 <h1>Seja bem vindo</h1>
-<p>Data: <%= format_date(Date.today)%> </p>
+
+<p>O idioma utilizado nessa aplicação é: <%= locale(I18n.locale)%>  </p>
+
+<p>Data: <%= Date.today%> </p>
 
 <%= render 'menu'%>
 
