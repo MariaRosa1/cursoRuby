@@ -1,8 +1,13 @@
 <h1>Seja bem vindo</h1>
 
-<p>O idioma utilizado nessa aplicação é: <%= locale(I18n.locale)%>  </p>
+<p> <%= link_to 'Pt-BR', root_path(locale: 'pt-BR')%> </p>
+<p> <%= link_to 'English', root_path(locale: 'en')%> </p>
 
-<p>Data: <%= Date.today%> </p>
+<p>O idioma utilizado nessa aplicação é: <%= t('actual_locale') %>  </p>
+
+<p>Data: <%= l(Date.today)%> </p>
+
+<p> <%= I18n.t('hello') %> </p>
 
 <%= render 'menu'%>
 
