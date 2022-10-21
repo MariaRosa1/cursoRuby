@@ -13,6 +13,9 @@
 <p> A data de hoje é: <%= Date.today %> </p>
 
 
+aplication.js
+<% msg = Time.now.hour < 12 ? 'Bom dia!' : 'Olá!!!' %>
+alert("<%= msg %>");
 
 
 
@@ -21,3 +24,5 @@ aula 66
 aula 71
 aula 80
 aula 87
+aula 91
+
