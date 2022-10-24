@@ -6,7 +6,6 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'scaffolds', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    params[:controller], media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -14,10 +13,11 @@
   </head>
 
   <body>
-    <h3>Cabeçalho Padrão <%= params[:controller] %> </h3>
+    <div class="container-fluid">
+      <h3>Cabeçalho Padrão <%= params[:controller] %> </h3>
       <%= yield %>
-    <h3>Rodapé</h3>
-
+      <h3>Rodapé</h3>
+    </div>
     <script>
       $.notify("Rodou", "success");
     </script>
