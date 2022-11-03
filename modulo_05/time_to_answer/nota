@@ -1,5 +1,31 @@
 aula 124
 aula 130
 aula 140
+aula 152
 
   <p>Adm logado <%= current_admin.inspect %> </p>
+
+  <%= image_tag 'img.jpg', alt:"...", class:"img-circle profile_img"  %>
+  <span class="image"><%= image_tag 'img.jpg', alt:"Profile" %></span>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>TimeToAnswer</title>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application' %>
+    <%= stylesheet_link_tag    'users_backoffice' %>
+
+  </head>
+
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'users_backoffice' %>
