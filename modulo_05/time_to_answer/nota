@@ -2,6 +2,7 @@ aula 124
 aula 130
 aula 140
 aula 152
+aula 160
 
   <p>Adm logado <%= current_admin.inspect %> </p>
 
@@ -29,3 +30,34 @@ aula 152
 
   <%= javascript_include_tag 'application' %>
   <%= javascript_include_tag 'users_backoffice' %>
+
+
+
+
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Email</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+         <%= @admins.each do |admin| %>
+            <tr>
+                <td> <%= admin.id %> </td>
+                <td> <%= admin.email %> </td>
+                <td>
+                  <%= link_to edit_admins_backoffice_admin_path(admin), class:"btn btn-primary btn-circle"  do %>
+                    <i class="fa fa-pencil"></i>
+                  <% end %>
+                <button type="button" class="btn btn-danger btn-circle">
+                  <i class="fa fa-trash-o"></i>
+                </button>
+                </td>
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
+  </div>
