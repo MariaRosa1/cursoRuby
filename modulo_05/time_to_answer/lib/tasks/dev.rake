@@ -1,5 +1,7 @@
 namespace :dev do
 
+  DEFAULT_FILES_PATH = File.join(Rails.root, 'lib', 'tmp')
+
   desc "Deleta, cria, faz a migration e sob os dados do DB"
   task setup: :environment do
     if Rails.env.development?
@@ -12,6 +14,9 @@ namespace :dev do
       show_spinner('Add admin padrão...') {%x(rails dev:add_default_admin)}
       show_spinner('Add admin extras...') {%x(rails dev:add_extras_admin)}
       show_spinner('Add user padrão...') {%x(rails dev:add_default_user)}
+
+      show_spinner('Add assuntos padrão...') {%x(rails dev:add_subjects)}
+      show_spinner('Add questões padrão...') {%x(rails dev:add_question)}
 
 
     else
@@ -43,6 +48,28 @@ namespace :dev do
       email: 'user@user.com',
       password: 123456,
       password_confirmation: 123456)
+  end
+
+  desc "Adiciona assuntos padrão"
+  task add_subjects: :environment do
+    file_name = 'subjects.txt'
+    file_path = File.join(DEFAULT_FILES_PATH, file_name)
+
+    File.open(file_path, 'r').each do |line|
+      Subject.create!(description: line.strip)
+    end
+  end
+
+  desc "Cadastra varias questoes"
+  task add_question: :environment do
+    Subject.all.each do |subject|
+      rand(2..4).times do |i|
+        Question.create!(
+          description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
+          subject: subject
+        )
+      end
+    end
   end
 
 
