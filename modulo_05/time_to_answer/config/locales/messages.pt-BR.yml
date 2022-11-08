@@ -1,0 +1,15 @@
+'pt-BR':
+  messages:
+    listing: Listando %{model}
+    editing: Editando %{model}
+    new: Novo %{model}
+    newa: Nova %{model}
+    confirm_with: Você deseja realmente excluir %{item}
+  placeholder:
+    email: Digite email do novo administrador
+    password: Digite uma senha
+    password_confirmation: Confirme sua senha
+    question_description: Digite a descrição da pergunta
+    subject_description: Digite o assunto
+  buttons:
+    save: Salvar

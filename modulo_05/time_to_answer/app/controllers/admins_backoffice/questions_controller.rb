@@ -1,10 +1,12 @@
 class AdminsBackoffice::QuestionsController < AdminsBackofficeController
   before_action :set_question, only: [:edit, :update, :destroy]
   before_action :get_subjects, only: [:new, :edit]
+  before_action :get_answers, only: [:new, :edit]
+
 
 
   def index
-    @questions = Question.includes(:subject)
+    @questions = Question.includes(:subject, :answers)
                           .order(:description)
                           .page(params[:page])
   end
@@ -56,5 +58,8 @@ class AdminsBackoffice::QuestionsController < AdminsBackofficeController
     @subjects = Subject.all
   end
 
+  def get_answers
+    @answers = Answer.all
+  end
 
 end

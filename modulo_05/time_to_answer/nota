@@ -3,6 +3,8 @@ aula 130
 aula 140
 aula 152
 aula 160
+aula 174
+aula 180
 
   <p>Adm logado <%= current_admin.inspect %> </p>
 

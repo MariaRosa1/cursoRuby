@@ -16,7 +16,7 @@ namespace :dev do
       show_spinner('Add user padrão...') {%x(rails dev:add_default_user)}
 
       show_spinner('Add assuntos padrão...') {%x(rails dev:add_subjects)}
-      show_spinner('Add questões padrão...') {%x(rails dev:add_question)}
+      show_spinner('Add questões e resposta padrão...') {%x(rails dev:add_question)}
 
 
     else
@@ -64,10 +64,22 @@ namespace :dev do
   task add_question: :environment do
     Subject.all.each do |subject|
       rand(2..4).times do |i|
-        Question.create!(
+        params = {question: {
           description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
-          subject: subject
-        )
+          subject: subject,
+          answers_attributes: []
+        }}
+
+        rand(2..5).times do |j|
+          params[:question][:answers_attributes].push(
+            { description: Faker::Lorem.sentence, correct: false }
+          )
+        end
+
+        index = rand(params[:question][:answers_attributes].size)
+        params[:question][:answers_attributes][index] = { description: Faker::Lorem.sentence, correct: true }
+
+        Question.create!(params[:question])
       end
     end
   end

@@ -11,7 +11,8 @@ Rails.application.routes.draw do
     get 'welcome/index'  #dashboard
     resources :admins, except: [:show]   #adm
     resources :subjects #assuntos
-    resources :questions 
+    resources :questions
+    resources :answers
   end
   devise_for :admins
 
