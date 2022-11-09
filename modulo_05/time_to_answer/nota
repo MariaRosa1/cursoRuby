@@ -5,6 +5,7 @@ aula 152
 aula 160
 aula 174
 aula 180
+aula 188
 
   <p>Adm logado <%= current_admin.inspect %> </p>
 
