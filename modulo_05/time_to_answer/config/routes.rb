@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   namespace :users_backoffice do
     get 'welcome/index'
   end
-  devise_for :users
   namespace :site do
     get 'welcome/index'
+    get 'search', to: 'search#questions'
   end
   namespace :admins_backoffice do
     get 'welcome/index'  #dashboard
@@ -14,7 +14,9 @@ Rails.application.routes.draw do
     resources :questions
     resources :answers
   end
+
   devise_for :admins
+  devise_for :users
 
   get 'users/index'
   get 'users/show'
