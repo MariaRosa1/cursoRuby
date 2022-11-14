@@ -72,28 +72,7 @@
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
-
       <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <% unless params[:term] %>
-          <h3>Ultimas perguntas cadastradas...</h3>
-        <% else %>
-          <h3> <%= "Resultado para a pesquisa \"#{params[:term]}\"" %> ...</h3>
-        <% end %>
-
-        <% if user_signed_in? %>
-          <p>Usuario logado <%= current_user.email %> </p>
-        <% else %>
-          <p>Usuario não logado</p>
-        <% end %>
-
-        <% if admin_signed_in? %>
-          <p>Adm logado <%= current_admin.email %> </p>
-        <% else %>
-          <p>Adm não logado</p>
-        <% end %>
-      </div>
-
       <%= yield %>
     </div> <!-- /container -->
 

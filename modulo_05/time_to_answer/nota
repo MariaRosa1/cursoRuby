@@ -8,6 +8,7 @@ aula 180
 aula 188
 aula 193
 aula 199
+aula 205
 
   <p>Adm logado <%= current_admin.inspect %> </p>
 
@@ -66,3 +67,19 @@ aula 199
         </tbody>
     </table>
   </div>
+
+
+
+
+
+  <% if user_signed_in? %>
+  <p>Usuario logado <%= current_user.email %> </p>
+<% else %>
+  <p>Usuario não logado</p>
+<% end %>
+
+<% if admin_signed_in? %>
+  <p>Adm logado <%= current_admin.email %> </p>
+<% else %>
+  <p>Adm não logado</p>
+<% end %>
