@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :answers
   end
 
-  devise_for :admins
+  devise_for :admins, skip: [:registrations]
   devise_for :users
 
   get 'users/index'

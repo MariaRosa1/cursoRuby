@@ -1,5 +1,5 @@
 class Question < ApplicationRecord
-  belongs_to :subject, inverse_of: :questions
+  belongs_to :subject, counter_cache: true, inverse_of: :questions
   has_many :answers
 
   accepts_nested_attributes_for :answers, reject_if: :all_blank, allow_destroy: true
@@ -20,7 +20,7 @@ class Question < ApplicationRecord
   }
 
   scope :last_questions, ->(page){
-    includes(:answers)
+    includes(:answers, :subject)
     .order('created_at desc')
     .page(page)
 
