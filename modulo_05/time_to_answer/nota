@@ -9,6 +9,8 @@ aula 188
 aula 193
 aula 199
 aula 205
+aula 211 213 tentar fazer o if else para se tiver vazio não mostrar o fullname na navuser
+aula 215
 
   <p>Adm logado <%= current_admin.inspect %> </p>
 
