@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get 'users/index'
   get 'users/show'
   get 'inicio', to: 'site/welcome#index'
+  get 'backoffice', to: 'admins_backoffice/welcome#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'site/welcome#index'
