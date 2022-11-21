@@ -12,6 +12,13 @@ aula 205
 aula 211 213 tentar fazer o if else para se tiver vazio não mostrar o fullname na navuser
 aula 215
 aula 220
+aula 226
+
+def total_question
+self.right_questions + self.wrong_questions
+end
+
+
 
   <p>Adm logado <%= current_admin.inspect %> </p>
 
