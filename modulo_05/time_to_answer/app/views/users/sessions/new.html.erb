@@ -15,7 +15,7 @@
 
           <div>
             <%= f.submit "Entrar", class: "btn btn-default submit" %>
-            <a class="reset_pass" href="#">Lost your password?</a>
+            <%= link_to 'Esqueceu sua senha?', new_user_password_path, class:"reset_pass" %>
           </div>
 
           <div class="clearfix"></div>

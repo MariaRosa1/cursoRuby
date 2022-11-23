@@ -93,3 +93,6 @@ end
 <% else %>
   <p>Adm não logado</p>
 <% end %>
+
+usa o devise
+normalmente cria outro banco para contar registros
