@@ -214,7 +214,7 @@
             <%= form.fields_for :user_profile do |profile_form| %>
               <div class="form-group">
               <%= profile_form.label :avatar %>
-              <%= image_tag(current_user.user_profile.avatar, alt:"...", class:"img-circle profile_img", id:"imgAvatarLg")%>
+              <%= image_tag(avatar_url, alt:"...", class:"img-circle profile_img", id:"imgAvatarLg")%>
               <%= profile_form.file_field :avatar%>
             </div>
             <% end %>

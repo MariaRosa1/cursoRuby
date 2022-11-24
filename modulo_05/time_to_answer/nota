@@ -14,6 +14,9 @@ aula 215
 aula 220
 aula 226
 
+<td> <%= question.answers.map {|answer| answer.description}.to_sentence %> </td>
+
+
 def total_question
 self.right_questions + self.wrong_questions
 end
