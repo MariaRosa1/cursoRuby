@@ -31,11 +31,11 @@ class AdminsBackoffice::SubjectsController < AdminsBackofficeController
   end
 
   def destroy
-    if @subject.destroy
-      redirect_to admins_backoffice_subjects_path, notice: "assunto excluido!"
-    else
-      render :index
-    end
+      if @subject.destroy
+        redirect_to admins_backoffice_subjects_path, notice: "assunto excluido!"
+      else
+        render :index
+      end
   end
 
   private

@@ -1,23 +1,21 @@
+ePanel = document.getElementById("panel_<%= @answer.question_id %>")
 element = document.getElementById("submit_<%= @answer.question_id %>")
+result = document.getElementById("result_<%= @answer.question_id %>")
+
+ePanel.classList.remove('panel-default')
+ePanel.classList.remove('panel-danger')
+ePanel.classList.remove('panel-success')
 
 element.classList.remove('btn-default')
 element.classList.remove('btn-danger')
 element.classList.remove('btn-success')
 
 if(<%= @answer.correct %>){
+  ePanel.classList.add('panel-success')
   element.classList.add('btn-success')
-  $.bootstrapGrowl("Você acertou ^-^", {
-    type: 'success', // (null, 'info', 'danger', 'success')
-    align: 'right', // ('left', 'right', or 'center')
-    allow_dismiss: true, // If true then will display a cross to close the popup.
-    stackup_spacing: 10 // spacing between consecutively stacked growls.
-    });
+  result.innerHTML = "Você acertou ^-^";
 }else{
+  ePanel.classList.add('panel-danger')
   element.classList.add('btn-danger')
-  $.bootstrapGrowl("Você errou :(", {
-    type: 'danger', // (null, 'info', 'danger', 'success')
-    align: 'right', // ('left', 'right', or 'center')
-    allow_dismiss: true, // If true then will display a cross to close the popup.
-    stackup_spacing: 10 // spacing between consecutively stacked growls.
-    });
+  result.innerHTML = "Você errou tente novamente :(";
 }

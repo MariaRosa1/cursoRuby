@@ -1,4 +1,0 @@
-aula 124
-aula 130
-
-  <p>Adm logado <%= current_admin.inspect %> </p>

@@ -1,8 +1,0 @@
-{
-  "name": "time_to_answer",
-  "private": true,
-  "dependencies": {},
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT"
-}

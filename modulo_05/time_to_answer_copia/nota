@@ -1,0 +1,101 @@
+aula 124
+aula 130
+aula 140
+aula 152
+aula 160
+aula 174
+aula 180
+aula 188
+aula 193
+aula 199
+aula 205
+aula 211 213 tentar fazer o if else para se tiver vazio não mostrar o fullname na navuser
+aula 215
+aula 220
+aula 226
+
+<td> <%= question.answers.map {|answer| answer.description}.to_sentence %> </td>
+
+
+def total_question
+self.right_questions + self.wrong_questions
+end
+
+
+
+  <p>Adm logado <%= current_admin.inspect %> </p>
+
+  <%= image_tag 'img.jpg', alt:"...", class:"img-circle profile_img"  %>
+  <span class="image"><%= image_tag 'img.jpg', alt:"Profile" %></span>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>TimeToAnswer</title>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application' %>
+    <%= stylesheet_link_tag    'users_backoffice' %>
+
+  </head>
+
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'users_backoffice' %>
+
+
+
+
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Email</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+         <%= @admins.each do |admin| %>
+            <tr>
+                <td> <%= admin.id %> </td>
+                <td> <%= admin.email %> </td>
+                <td>
+                  <%= link_to edit_admins_backoffice_admin_path(admin), class:"btn btn-primary btn-circle"  do %>
+                    <i class="fa fa-pencil"></i>
+                  <% end %>
+                <button type="button" class="btn btn-danger btn-circle">
+                  <i class="fa fa-trash-o"></i>
+                </button>
+                </td>
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
+  </div>
+
+
+
+
+
+  <% if user_signed_in? %>
+  <p>Usuario logado <%= current_user.email %> </p>
+<% else %>
+  <p>Usuario não logado</p>
+<% end %>
+
+<% if admin_signed_in? %>
+  <p>Adm logado <%= current_admin.email %> </p>
+<% else %>
+  <p>Adm não logado</p>
+<% end %>
+
+usa o devise
+normalmente cria outro banco para contar registros

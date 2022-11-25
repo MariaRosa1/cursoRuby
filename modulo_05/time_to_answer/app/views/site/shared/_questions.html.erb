@@ -4,7 +4,8 @@
 
 <% @questions.each do |question| %>
   <%= form_with url: site_answer_path do |form|  %>
-  <div class="panel panel-default">
+  <div class="panel panel-default" id="panel_<%= question.id%>"  >
+
     <div class="panel-heading">
       <h3 class="panel-title">
         <span class="label label-info" style="margin-right:10px;">
@@ -29,6 +30,7 @@
         <li style ="list-style:none;">
           <%= form.submit "Responder", class:"btn btn-default", id:"submit_#{question.id}"%>
         </li>
+        <p id="result_<%= question.id%>"></p>
       </ul>
     </div>
   </div>
@@ -45,4 +47,3 @@
     Efetue login para poder navegar em todas as perguntas...
   </div>
 <% end %>
-

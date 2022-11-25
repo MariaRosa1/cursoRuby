@@ -25,10 +25,19 @@
             <%= link_to edit_admins_backoffice_subject_path(subject), class:"btn btn-primary btn-circle"  do %>
               <i class="fa fa-pencil"></i>
             <% end %>
+
+          <% if subject.questions.empty? %>
             <%= link_to admins_backoffice_subject_path(subject), method: :delete, class:"btn btn-danger btn-circle",
-            data: {confirm: t('messages.confirm_with', item: subject.description.truncate(15) )}  do %>
+              data: {confirm: t('messages.confirm_with' )}  do %>
               <i class="fa fa-trash-o"></i>
             <% end %>
+          <% else %>
+            <%= link_to admins_backoffice_subject_path(subject), method: :delete, class:"btn btn-danger btn-circle",
+              data: {confirm: t('messages.confirm_with2' )}  do %>
+              <i class="fa fa-trash-o"></i>
+            <% end %>
+          <% end %>
+
           </td>
         <% end %>
       </tr>

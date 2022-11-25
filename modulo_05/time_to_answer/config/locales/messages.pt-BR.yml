@@ -4,7 +4,8 @@
     editing: Editando %{model}
     new: Novo %{model}
     newa: Nova %{model}
-    confirm_with: Você deseja realmente excluir %{item}
+    confirm_with: Você deseja realmente excluir
+    confirm_with2: Este assunto tem varias perguntas vinculadas, exclui-lo pagará todas as outras perguntas juntas!
   placeholder:
     email: Digite email do novo administrador
     password: Digite uma senha

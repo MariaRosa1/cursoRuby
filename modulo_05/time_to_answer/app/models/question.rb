@@ -1,11 +1,12 @@
 class Question < ApplicationRecord
   belongs_to :subject, counter_cache: true, inverse_of: :questions
-  has_many :answers
+  has_many :answers, dependent: :delete_all
 
   accepts_nested_attributes_for :answers, reject_if: :all_blank, allow_destroy: true
 
   #callback
   after_create :set_statistic
+  after_destroy :set_statistic_des
 
   #kaminari
   paginates_per 10
@@ -32,6 +33,10 @@ class Question < ApplicationRecord
 
   def set_statistic
     AdminStatistic.set_event(AdminStatistic::EVENTS[:total_questions])
+  end
+
+  def set_statistic_des
+    AdminStatistic.set_event_des(AdminStatistic::EVENTS[:total_questions])
   end
 
 end
