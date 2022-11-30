@@ -13,6 +13,7 @@ aula 211 213 tentar fazer o if else para se tiver vazio não mostrar o fullname 
 aula 215
 aula 220
 aula 226
+aula 265
 
 <td> <%= question.answers.map {|answer| answer.description}.to_sentence %> </td>
 
