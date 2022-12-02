@@ -24,5 +24,4 @@ class AdminStatistic < ApplicationRecord
     admin_statistic.value -=1
     admin_statistic.save
   end
-
 end
