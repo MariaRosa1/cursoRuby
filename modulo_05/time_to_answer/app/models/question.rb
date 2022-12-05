@@ -1,4 +1,6 @@
 class Question < ApplicationRecord
+  searchkick
+
   belongs_to :subject, counter_cache: true, inverse_of: :questions
   has_many :answers, dependent: :delete_all
 
