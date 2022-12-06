@@ -10,6 +10,7 @@ class Question < ApplicationRecord
   after_create :set_statistic
   after_destroy :set_statistic_des
 
+
   #kaminari
   paginates_per 10
 
@@ -31,6 +32,11 @@ class Question < ApplicationRecord
     .page(page)
   }
 
+  scope :_search_alfhabetical_, ->(page){
+    includes(:answers, :subject)
+    .order('description')
+    .page(page)
+  }
   private
 
   def set_statistic

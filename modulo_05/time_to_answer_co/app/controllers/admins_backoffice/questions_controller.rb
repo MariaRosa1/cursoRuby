@@ -21,7 +21,7 @@ class AdminsBackoffice::QuestionsController < AdminsBackofficeController
     if @question.save
       redirect_to admins_backoffice_questions_path, notice: "Questão cadastrada com sucesso!"
     else
-      render :new
+      render :new, notice: "Questão dakmsd!"
     end
   end
 

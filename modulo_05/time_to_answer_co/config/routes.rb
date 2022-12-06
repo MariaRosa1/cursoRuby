@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get 'search', to: 'search#questions'
     get 'subject/:subject_id/:subject', to: 'search#subject', as:'search_subject'
     post 'answer', to: 'answer#question'
+    get 'alphabetical', to: 'search#alphabetical'
   end
   namespace :admins_backoffice do
     get 'welcome/index'  #dashboard
