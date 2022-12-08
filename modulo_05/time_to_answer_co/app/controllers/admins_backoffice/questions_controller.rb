@@ -4,7 +4,6 @@ class AdminsBackoffice::QuestionsController < AdminsBackofficeController
   before_action :get_answers, only: [:new, :edit]
 
 
-
   def index
     @questions = Question.includes(:subject, :answers)
                           .order(:subject)
@@ -18,10 +17,12 @@ class AdminsBackoffice::QuestionsController < AdminsBackofficeController
   def create
     @question = Question.new(params_question)
 
-    if @question.save
-      redirect_to admins_backoffice_questions_path, notice: "Questão cadastrada com sucesso!"
+    if @question.answers.blank? || @question.answers.size < 2
+      redirect_to new_admins_backoffice_question_path, notice: "Não foi possivel pois precisa de repostas!"
+      puts "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
     else
-      render :new, notice: "Questão dakmsd!"
+      @question.save
+      redirect_to admins_backoffice_questions_path, notice: "Questão cadastrada com sucesso!"
     end
   end
 
@@ -62,5 +63,7 @@ class AdminsBackoffice::QuestionsController < AdminsBackofficeController
   def get_answers
     @answers = Answer.all
   end
+
+
 
 end

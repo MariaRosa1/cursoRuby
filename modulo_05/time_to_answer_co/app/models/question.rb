@@ -10,6 +10,8 @@ class Question < ApplicationRecord
   after_create :set_statistic
   after_destroy :set_statistic_des
 
+  # validates :answers, presence: true
+  validates :subject_id, presence: true
 
   #kaminari
   paginates_per 10
