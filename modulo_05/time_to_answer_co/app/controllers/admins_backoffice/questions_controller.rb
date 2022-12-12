@@ -45,6 +45,10 @@ class AdminsBackoffice::QuestionsController < AdminsBackofficeController
     end
   end
 
+  def search_by_question
+    @questions = Question._search_(params[:page], params[:term])
+  end
+
   private
 
   def params_question
@@ -63,7 +67,4 @@ class AdminsBackoffice::QuestionsController < AdminsBackofficeController
   def get_answers
     @answers = Answer.all
   end
-
-
-
 end

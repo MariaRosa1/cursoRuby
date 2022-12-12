@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :subjects #assuntos
     resources :questions
     resources :answers
+    get 'searchquestion', to: 'questions#search_by_question'
   end
 
   devise_for :admins, skip: [:registrations]
