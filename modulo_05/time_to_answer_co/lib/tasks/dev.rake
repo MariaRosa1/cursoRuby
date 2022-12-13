@@ -18,7 +18,6 @@ namespace :dev do
       show_spinner('Add assuntos padrão...') {%x(rails dev:add_subjects)}
       show_spinner('Add questões e resposta padrão...') {%x(rails dev:add_question)}
 
-
     else
       puts "Vc não esta em ambiente de desenvolvimento"
     end

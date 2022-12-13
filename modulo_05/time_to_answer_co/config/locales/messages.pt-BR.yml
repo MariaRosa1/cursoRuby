@@ -12,5 +12,3 @@
     password_confirmation: Confirme sua senha
     question_description: Digite a descrição da pergunta
     subject_description: Digite o assunto
-  buttons:
-    save: Salvar
