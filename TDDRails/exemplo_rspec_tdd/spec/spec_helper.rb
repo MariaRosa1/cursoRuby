@@ -34,6 +34,10 @@ RSpec.configure do |config|
   #   puts ">>>>>>>>>>>>> Dps de todos os testes"
   # end
 
+  config.define_derived_metadata do |meta|
+    meta[:aggredate_failures] = true
+  end
+
 
   config.include Helper
   # rspec-expectations config goes here. You can use an alternate

@@ -10,7 +10,6 @@ describe Calculator, "Sobre a calculadora" do
       expect{subject.div(3,0)}.to raise_error(ZeroDivisionError, "divided by 0")
       expect{subject.div(3,0)}.to raise_error(/divided/)
     end
-    
   end
 
   context "#sum" do
