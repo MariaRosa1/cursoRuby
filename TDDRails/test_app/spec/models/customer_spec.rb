@@ -4,13 +4,12 @@ RSpec.describe Customer, type: :model do
 ####################################################################
 # sequence
 
-  it "Email" do
-    customer = create(:customer)
-    customer1 = create(:customer)
-    puts customer.email
-    puts customer1.email
-  end
-  
+  # it "Email" do
+  #   customer = create(:customer)
+  #   customer1 = create(:customer)
+  #   puts customer.email
+  #   puts customer1.email
+  # end
 
 ####################################################################
 # traits
