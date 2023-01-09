@@ -11,6 +11,7 @@ FactoryBot.define do
     # email { Faker::Internet.email}
     # email { "maria2@maria.com" }
     sequence(:email, 3) { |n| "meu_email-#{n}@email.com"}
+    created_at {Time.now}
 
     address {Faker::Address.street_address}
 
@@ -45,6 +46,8 @@ FactoryBot.define do
     factory :customer_male, traits: [:male]
     factory :customer_male_default, traits: [:male, :default]
     factory :customer_male_vip, traits: [:male, :vip]
+    factory :customer_vip, traits: [:vip]
+    factory :customer_default, traits: [:default]
 
     after(:create) do |customer, evaluator|
       customer.name.upcase! if evaluator.upcased

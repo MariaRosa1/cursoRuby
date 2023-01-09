@@ -1,6 +1,33 @@
 require 'rails_helper'
 
 RSpec.describe Customer, type: :model do
+
+####################################################################
+
+  # it "tentando time.now" do
+  #     @customer = create(:customer_vip)
+  #     expect(@customer.created_at).to eq(Time.now)
+  # end
+
+
+  it "to_travel com be" do
+    travel_to Time.zone.local(2004, 10, 14, 01, 04, 44) do
+      @customer = create(:customer_vip)
+    end
+    expect(@customer.created_at).to be < Time.now
+  end
+
+  # it "to_travel com time.new" do
+  #   travel_to Time.zone.local(2004, 10, 14, 01, 04, 44) do
+  #     @customer = create(:customer_vip)
+  #   end
+
+  #   puts @customer.inspect
+  #   puts @customer.created_at
+  #   puts Time.now
+  #   expect(@customer.created_at).to eq(Time.new(2004, 10, 14, 01, 04, 44))
+  # end
+
 ####################################################################
 # sequence
 
