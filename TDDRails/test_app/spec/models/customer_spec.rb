@@ -9,7 +9,6 @@ RSpec.describe Customer, type: :model do
   #     expect(@customer.created_at).to eq(Time.now)
   # end
 
-
   it "to_travel com be" do
     travel_to Time.zone.local(2004, 10, 14, 01, 04, 44) do
       @customer = create(:customer_vip)
