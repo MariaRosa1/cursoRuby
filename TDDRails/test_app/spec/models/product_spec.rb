@@ -7,13 +7,13 @@ RSpec.describe Product, type: :model do
     expect(product).to be_valid
   end
 
-  context "Validates" do
+  context "Validates com shoulda matchers" do
     it { is_expected.to validate_presence_of(:description) }
     it { is_expected.to validate_presence_of(:price) }
     it { is_expected.to validate_presence_of(:category) }
   end
 
-  context "associations" do
+  context "associations com shoulda matchers" do
     it { is_expected.to belong_to(:category) }
   end
 
@@ -25,7 +25,7 @@ RSpec.describe Product, type: :model do
     end
   end
 
-  
+
   # context "Sem o shoulda matchers" do
   #   it "is invalid without description" do
   #     product = build(:product, description: nil)
@@ -47,20 +47,25 @@ RSpec.describe Product, type: :model do
   # end
 
 
-  context "meus testes" do
-    it "is false without description" do
-      product = build(:product, description: nil)
-      expect(product.valid?).to be_falsey
-    end
+  # context "meus testes" do
+  #   it "is false without description" do
+  #     product = build(:product, description: nil)
+  #     expect(product.valid?).to be_falsey
+  #   end
 
-    it "is invalid without description" do
-      product = build(:product, description: nil)
-      expect(product).to be_invalid
-    end
+  #   it "is invalid without description" do
+  #     product = build(:product, description: nil)
+  #     expect(product).to be_invalid
+  #   end
 
-    # it "Tentando teste" do
-    #   product = create(:product)
-    #   expect(product.description).to be_kind_of(String)
-    # end
-  end
+  #   it "is invalid without description" do
+  #     product = build(:product, description: nil)
+  #     expect(product).not_to be_valid
+  #   end
+
+  #   it "Tentando teste" do
+  #     product = create(:product)
+  #     expect(product.description).to be_kind_of(String)
+  #   end
+  # end
 end
