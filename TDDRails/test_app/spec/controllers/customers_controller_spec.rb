@@ -11,8 +11,8 @@ RSpec.describe CustomersController, type: :controller do
 
       it "responds status 200" do
         get :index
-        # puts response.inspect
         expect(response).to have_http_status(200)
+        # puts response.inspect
       end
     end
 
@@ -26,22 +26,54 @@ RSpec.describe CustomersController, type: :controller do
   end
 
 
-
   describe "Authentication" do
-
     before do
       @member = create(:member)
       @customer = create(:customer)
     end
 
+    it "Flash notice" do
+      customer_params = attributes_for(:customer)
+      sign_in @member
+      post :create, params: {customer: customer_params}
+      expect(flash[:notice]).to match(/successfully created/)
+    end
+
+    context "Shoulda matchers" do
+      it "routes" do
+        is_expected.to route(:get, '/customers').to(action: :index)
+      end
+
+      describe "testando index" do
+        before { get :index }
+        it { is_expected.to render_template('index') }
+      end
+    end
+
     context "#create" do
+
+      it "content-type Json" do
+        customer_params = attributes_for(:customer)
+        sign_in @member
+        post :create, format: :json, params: {customer: customer_params}
+        expect(response.content_type).to eq('application/json')
+      end
+
       it "With valid attributes" do
         customer_params = attributes_for(:customer)
-        # p customer_params
         sign_in @member
         expect{
           post :create, params: {customer: customer_params}
         }.to change(Customer, :count).by(1)
+        # p customer_params
+      end
+
+      it "With invalid attributes" do
+        customer_params = attributes_for(:customer, address: nil)
+        sign_in @member
+        expect{
+          post :create, params: {customer: customer_params}
+        }.not_to change(Customer, :count)
       end
     end
 
