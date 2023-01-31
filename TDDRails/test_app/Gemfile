@@ -55,6 +55,12 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
+  gem 'rspec-json_expectations', '~> 2.1.0'
+  gem 'json_matchers'
+
+  gem "net-smtp"
+  gem "net-imap"
+  gem "uri", "0.10.0"
 end
 
 group :development do

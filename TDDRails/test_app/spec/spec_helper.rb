@@ -1,5 +1,11 @@
 # webmock gem
 require 'webmock/rspec'
+require "rspec/json_expectations"
+
+#JSON schema
+require "json_matchers/rspec"
+JsonMatchers.schema_root = "spec/support/api/schemas"
+
 
 #vcr
 VCR.configure do |config|

@@ -10,7 +10,10 @@ require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 #retirar warn de deprecation selenium
-Selenium::WebDriver.logger.level = :error
+# Selenium::WebDriver.logger.level = :error
+
+#config do request_spec_helper
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -42,6 +45,9 @@ RSpec.configure do |config|
   #devise
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Warden::Test::Helpers
+
+  #config do request_spec_helper
+  config.include RequestSpecHelper, type: :request
 
 
   Shoulda::Matchers.configure do |config|
