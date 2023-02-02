@@ -1,0 +1,37 @@
+
+<% if flash[:notice] %>
+  <p> <%= flash[:notice] %> </p>
+<% end %>
+
+<h1>Listando Clientes</h1>
+
+<table>
+  <thead>
+    <tr>
+     <th> <%= @customers.human_attribute_name(:name) %> </th>
+     <th> <%= @customers.human_attribute_name(:email) %> </th>
+     <th> <%= @customers.human_attribute_name(:phone) %> </th>
+     <th> <%= @customers.human_attribute_name(:smoker) %> </th>
+     <th></th>
+     <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td> <%= customer.name %> </td>
+        <td> <%= customer.email %> </td>
+        <td> <%= customer.phone %> </td>
+        <td> <%= customer.smoker %> </td>
+        <td> <%= link_to "Mostrar", customer_path(customer)%> </td>
+        <td> <%= link_to "Editar", edit_customer_path(customer)%> </td>
+        <td> <%= link_to "Excluir", customer, method: :delete, data: {confirm: "Deseja realmente excluir?"} %> </td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'Novo Cliente', new_customer_path %>
+
